@@ -1,0 +1,23 @@
+# Ignore Eclipse IDE project files
+.classpath
+.project
+.metadata/
+.settings/
+.idea/
+
+# Ignore log files
+logs/*.log
+
+# Ignore test output directory
+test-output/
+
+# Ignore all files in the 'screenshots' directory
+screenshots/
+
+# Ignore .DS_Store files (common on macOS)
+.DS_Store
+
+# Ignore compiled files and directories
+bin/
+target/
+

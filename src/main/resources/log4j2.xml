@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <!-- Console Appender -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+
+        <!-- File Appender with overwrite mode to clear log at the start of each run -->
+        <File name="File" fileName="logs/app.log" append="false">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n" />
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <!-- Root Logger -->
+        <Root level="info">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Root>
+
+        <!-- Suppress logs from WebDriverManager -->
+        <Logger name="io.github.bonigarcia.wdm" level="ERROR" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Logger>
+
+        <!-- Specific Logger for Cucumber or your testing framework -->
+        <Logger name="io.cucumber" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Logger>
+
+        <!-- Specific Logger for a Class -->
+        <Logger name="com.yourcompany.pageClass" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Logger>
+    </Loggers>
+</Configuration>
